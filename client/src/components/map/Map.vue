@@ -25,6 +25,7 @@
 
 import {COORDINATES} from "@/consts";
 import MapIcon from "@/components/map/MapIcon";
+import {M_SET_LOCATION} from "@/store/mutations/location.mutations";
 
 export default {
   name: "Map",
@@ -45,9 +46,9 @@ export default {
       geolocPosition: undefined,
     }
   },
-  methods: {
-    onMapClicked() {
-      alert("not implemented")
+  watch: {
+    geolocPosition(oldVal, newVal) {
+      this.$store.commit(`location/${M_SET_LOCATION}`, newVal);
     }
   }
 }

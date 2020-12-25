@@ -1,0 +1,1 @@
+export const M_SET_LOCATION = "M_SET_LOCATION"

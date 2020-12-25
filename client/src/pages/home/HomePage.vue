@@ -1,13 +1,14 @@
 <template>
   <div class="home">
     <h1 class="header">Parking Spots Map</h1>
-    <b-button class="action-button" size="is-large" @click="onParkingVacated">Vacate Parking</b-button>
+    <b-button v-if="canVacateParking" class="action-button" size="is-large" @click="onParkingVacated">Vacate Parking</b-button>
     <Map :coordinates-arrays="coordinates"/>
   </div>
 </template>
 
 <script>
 import Map from '@/components/map/Map.vue'
+import { mapState } from "vuex";
 
 export default {
   name: 'Home',
@@ -20,6 +21,14 @@ export default {
         // [34.771,32.078],
         // [34.771,32.075],
       ]
+    }
+  },
+  computed: {
+    ...mapState("location", {
+      currentLocationCoordinates: "coordinates"
+    }),
+    canVacateParking() {
+      return this.currentLocationCoordinates && this.currentLocationCoordinates.length
     }
   },
   methods: {
