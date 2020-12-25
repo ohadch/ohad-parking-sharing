@@ -8,7 +8,3 @@ parkingSpotRouter.route("/")
 
 parkingSpotRouter.route("/:id")
     .get(getOne)
-
-parkingSpotRouter.route("/vacate")
-    .post(vacateParking)
-
