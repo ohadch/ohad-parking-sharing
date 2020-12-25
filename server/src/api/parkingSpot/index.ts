@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getAll, getOne} from "./ParkingSpot.controller";
+import {getAll, getOne, vacateParking} from "./ParkingSpot.controller";
 
 export const parkingSpotRouter = Router();
 
@@ -8,3 +8,7 @@ parkingSpotRouter.route("/")
 
 parkingSpotRouter.route("/:id")
     .get(getOne)
+
+parkingSpotRouter.route("/vacate")
+    .post(vacateParking)
+

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {parkingSpotRouter} from "./parkingSpot";
 
-const router = Router();
+export const apiRouter = Router();
 
-router.use("/parking-spot", parkingSpotRouter);
+apiRouter.use("/parking-spot", parkingSpotRouter);
