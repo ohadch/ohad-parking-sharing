@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     onParkingVacated() {
-      alert("Not Implemented")
+      alert(JSON.stringify(this.currentLocationCoordinates))
     }
   }
 }
