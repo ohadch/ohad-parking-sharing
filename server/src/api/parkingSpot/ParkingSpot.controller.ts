@@ -20,6 +20,7 @@ export const getOne : RequestHandler = async (req, res) => {
 
 export const vacateParking : RequestHandler = async (req, res) => {
     const { coordinates } = req.body as unknown as IVacateParkingBody
+    console.log(`Will vacate parking at ${coordinates}`)
     const spot = await ParkingSpotModel.create({ coordinates })
     return res.json({ spot });
 }

@@ -1,6 +1,9 @@
+require("./config/db")();
+
 import express from 'express';
 import cors from "cors"
 import {apiRouter} from "./api";
+
 
 const app = express();
 

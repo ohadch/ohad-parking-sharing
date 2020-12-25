@@ -9,7 +9,7 @@ const InitiateMongoServer = async () => {
         await mongoose.connect(MONGO_URI, {
             useNewUrlParser: true
         });
-        console.log("Connected!");
+        console.log("Successfully connected to the MongoDB database");
     } catch (e) {
         console.log(e);
         throw e;
