@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       coordinates: [
-        [34.771,32.078]
+        [34.771,32.078],
+        [34.771,32.075],
       ]
     }
   }

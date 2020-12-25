@@ -1,5 +1,5 @@
 <template>
-  <vl-feature id="position-feature">
+  <vl-feature :id="JSON.stringify(coordinates)">
     <vl-geom-point :coordinates="coordinates"></vl-geom-point>
     <vl-style-box>
       <vl-style-icon :src="icon" :scale="scale || 0.125" :anchor="anchor || [0.5, 1]"></vl-style-icon>
