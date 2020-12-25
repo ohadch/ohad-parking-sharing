@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import parkingSpot from "./parkingSpot.module";
-import location from "./location.module";
+import parkingSpot from "./modules/parkingSpot.module";
+import location from "./modules/location.module";
 
 Vue.use(Vuex)
 
