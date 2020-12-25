@@ -18,6 +18,8 @@ export default {
         }
     },
     mutations: {
-        [M_ADD_PARKING_SPOT](state, parkingSpot) {}
+        [M_ADD_PARKING_SPOT](state, parkingSpot) {
+            state.freeSpots.push(parkingSpot)
+        }
     }
 }

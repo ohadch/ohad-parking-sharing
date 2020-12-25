@@ -13,7 +13,7 @@ export default class NetworkService {
         const url = NetworkService.buildUrl(endpoint)
         const response = await axios.get(url)
         return response.data;
-    };
+    }
 
     /**
      *
@@ -24,7 +24,7 @@ export default class NetworkService {
         const url = NetworkService.buildUrl(endpoint)
         const response = await axios.post(url, data)
         return response.data;
-    };
+    }
 
     /**
      *
@@ -35,7 +35,7 @@ export default class NetworkService {
         const url = NetworkService.buildUrl(endpoint)
         const response = await axios.put(url, data)
         return response.data;
-    };
+    }
 
     /**
      *
@@ -45,7 +45,7 @@ export default class NetworkService {
         const url = NetworkService.buildUrl(endpoint)
         const response = await axios.get(url)
         return response.data;
-    };
+    }
 
     /**
      *
