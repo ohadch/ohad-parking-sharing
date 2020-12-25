@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Parking Spots Map</h1>
-    <Map :coordinates="[]"/>
+    <Map :coordinates-arrays="coordinates"/>
   </div>
 </template>
 
@@ -12,6 +12,13 @@ export default {
   name: 'Home',
   components: {
     Map
+  },
+  data() {
+    return {
+      coordinates: [
+        [34.771,32.078]
+      ]
+    }
   }
 }
 </script>

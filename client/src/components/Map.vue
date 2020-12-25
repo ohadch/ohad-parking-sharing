@@ -5,13 +5,13 @@
               data-projection="EPSG:4326" style="height:700px">
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
-        <vl-geoloc @update:position="geolocPosition = $event">
-          <template>
-            <vl-feature v-if="coordinates && coordinates.length">
-              <vl-geom-multi-point :coordinates="coordinates"></vl-geom-multi-point>
-            </vl-feature>
-          </template>
-        </vl-geoloc>
+        <vl-feature id="position-feature" v-for="coordinates in coordinatesArrays" :key="JSON.stringify(coordinates)">
+          <vl-geom-point :coordinates="coordinates"></vl-geom-point>
+          <vl-style-box>
+            <vl-style-icon :src="require(`../assets/parking-icon.png`)" :scale="0.05" :anchor="[0.5, 1]"></vl-style-icon>
+          </vl-style-box>
+        </vl-feature>
+
 
         <vl-layer-tile id="osm">
           <vl-source-osm></vl-source-osm>
@@ -28,7 +28,7 @@ import {COORDINATES} from "@/consts";
 export default {
   name: "Map",
   props: {
-    coordinates: {
+    coordinatesArrays: {
       type: Array,
       required: true
     }
