@@ -14,7 +14,7 @@ export default {
             }
         },
         async [A_CREATE_PARKING_SPOT](_, coordinates) {
-            this._vm.$socket.client.emit('ParkingCreated', coordinates);
+            this._vm.$socket.client.emit('ParkingSpotCreated', coordinates);
         }
     },
     mutations: {

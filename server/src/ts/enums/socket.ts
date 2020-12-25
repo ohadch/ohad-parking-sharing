@@ -1,4 +1,9 @@
 export enum SocketInputEvent {
-    ParkingCreated = "ParkingCreated",
-    ParkingDeleted = "ParkingDeleted",
+    ParkingSpotCreated = "ParkingSpotCreated",
+    ParkingSpotDeleted = "ParkingSpotDeleted",
+}
+
+export enum SocketOutputEvent {
+    ParkingSpotCreated = "ParkingSpotCreated",
+    ParkingSpotDeleted = "ParkingSpotDeleted",
 }
