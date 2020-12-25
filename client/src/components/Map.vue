@@ -22,6 +22,9 @@
 </template>
 
 <script>
+
+import {COORDINATES} from "@/consts";
+
 export default {
   name: "Map",
   props: {
@@ -32,8 +35,8 @@ export default {
   },
   data() {
     return {
-      zoom: 2,
-      center: [0, 0],
+      zoom: COORDINATES.HOVEVEY_TSIYON.zoom,
+      center: COORDINATES.HOVEVEY_TSIYON.coordinates,
       rotation: 0,
       geolocPosition: undefined,
     }
