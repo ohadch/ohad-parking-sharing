@@ -5,7 +5,13 @@
               data-projection="EPSG:4326" style="height:700px">
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
-        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="coordinates in coordinatesArrays" :coordinates="coordinates" :key="JSON.stringify(coordinates)" />
+        <vl-geoloc @update:position="geolocPosition = $event">
+          <template slot-scope="geoloc" v-if="geoloc.position" id="position-feature">
+            <MapIcon :icon="require(`../../assets/location-icon.png`)" :coordinates="geoloc.position" :scale="0.05"/>
+          </template>
+        </vl-geoloc>
+        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="coordinates in coordinatesArrays"
+                 :coordinates="coordinates" :key="JSON.stringify(coordinates)"/>
 
         <vl-layer-tile id="osm">
           <vl-source-osm></vl-source-osm>
@@ -39,5 +45,10 @@ export default {
       geolocPosition: undefined,
     }
   },
+  methods: {
+    onMapClicked() {
+      alert("not implemented")
+    }
+  }
 }
 </script>
