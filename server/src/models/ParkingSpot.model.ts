@@ -1,9 +1,9 @@
 import mongoose, {Schema} from "mongoose";
-import {IParkingSpotDocument, IParkingSpotModel} from "../ts/types";
+import {IParkingSpotDocument, IParkingSpotModel} from "../ts/types/models";
 
 
 const ParkingSpotSchema: Schema = new Schema({
-    coordinates: {type: String, required: true, minLength: 4},
+    coordinates: {type: Array, required: true},
 }, { timestamps: true })
 
 

@@ -7,6 +7,7 @@ export default class NetworkService {
     /**
      *
      * @param {string} endpoint
+     * @return {object[]}
      */
     static async get(endpoint) {
         const url = NetworkService.buildUrl(endpoint)
