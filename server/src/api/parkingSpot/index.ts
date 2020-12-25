@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getAll, getOne, vacateParking} from "./ParkingSpot.controller";
+import {getAll, getOne} from "./ParkingSpot.controller";
 
 export const parkingSpotRouter = Router();
 

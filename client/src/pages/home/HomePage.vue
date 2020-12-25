@@ -2,14 +2,14 @@
   <div class="home">
     <h1 class="header">Parking Spots Map</h1>
     <b-button :loading="isLoading" v-if="canVacateParking" class="action-button" size="is-large" @click="onParkingVacated">Vacate Parking</b-button>
-    <Map :coordinates-arrays="coordinates"/>
+    <Map :coordinates-arrays="freeParkingSpots.map(spot => spot.coordinates)"/>
   </div>
 </template>
 
 <script>
 import Map from '@/components/map/Map.vue'
 import { mapState } from "vuex";
-import ApiService from "@/api";
+import {A_CREATE_PARKING_SPOT} from "@/store/actions/parkingSpot.actions";
 
 export default {
   name: 'Home',
@@ -18,16 +18,15 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
-      coordinates: [
-        // [34.771,32.078],
-        // [34.771,32.075],
-      ]
+      isLoading: false
     }
   },
   computed: {
     ...mapState("location", {
-      currentLocationCoordinates: "coordinates"
+      currentLocationCoordinates: "coordinates",
+    }),
+    ...mapState("parkingSpot", {
+      freeParkingSpots: "freeSpots",
     }),
     canVacateParking() {
       return this.currentLocationCoordinates && this.currentLocationCoordinates.length
@@ -36,7 +35,7 @@ export default {
   methods: {
     async onParkingVacated() {
       this.isLoading = true
-      await ApiService.parkingSpot.vacate(this.currentLocationCoordinates)
+      await this.$store.dispatch(`parkingSpot/${A_CREATE_PARKING_SPOT}`, { coordinates: this.currentLocationCoordinates })
       this.isLoading = false
     }
   }

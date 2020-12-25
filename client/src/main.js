@@ -5,7 +5,7 @@ import store from './store'
 import VueLayers from 'vuelayers'
 import 'vuelayers/lib/style.css'
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.css
+import 'buefy/dist/buefy.css'
 import VueSocketIOExt from 'vue-socket.io-extended';
 import io from 'socket.io-client';
 

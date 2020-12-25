@@ -1,5 +1,4 @@
-import {A_GET_ALL_PARKING_SPOTS} from "@/store/actions/parkingSpot.actions";
-import ApiService from "@/api";
+import {A_CREATE_PARKING_SPOT, A_PARKING_SPOT_VACATED_FROM_SERVER} from "@/store/actions/parkingSpot.actions";
 import {M_ADD_PARKING_SPOT} from "@/store/mutations/parkingSpot.mutations";
 
 export default {
@@ -8,13 +7,14 @@ export default {
         freeSpots: []
     },
     actions: {
-        async [A_GET_ALL_PARKING_SPOTS]({commit, state}) {
-            const parkingSpots = await ApiService.parkingSpot.getAll();
+        async [A_PARKING_SPOT_VACATED_FROM_SERVER]({commit, state}, parkingSpot) {
             const existingParkingSpotIds = state.freeSpots.map(spot => spot._id)
-            for (const parkingSpot of parkingSpots) {
-                if (!existingParkingSpotIds.includes(parkingSpot._id))
+            if (!existingParkingSpotIds.includes(parkingSpot._id)) {
                 commit(M_ADD_PARKING_SPOT, parkingSpot)
             }
+        },
+        async [A_CREATE_PARKING_SPOT](_, coordinates) {
+            this._vm.$socket.client.emit('ParkingCreated', coordinates);
         }
     },
     mutations: {

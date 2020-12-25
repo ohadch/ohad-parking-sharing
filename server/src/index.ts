@@ -1,4 +1,5 @@
-import app from "./app";
+import "./app";
+import {server} from "./config";
 import {PORT} from "./settings";
 
-app.listen(PORT, () => console.log(`🚀 server is listening on http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`🚀 server is listening on http://localhost:${PORT}`));
