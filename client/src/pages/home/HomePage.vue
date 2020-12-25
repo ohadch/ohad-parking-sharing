@@ -2,7 +2,7 @@
   <div class="home">
     <h1 class="header">Parking Spots Map</h1>
     <b-button :loading="isLoading" v-if="canVacateParking" class="action-button" size="is-large" @click="onParkingVacated">Vacate Parking</b-button>
-    <Map :coordinates-arrays="freeParkingSpots.map(spot => spot.coordinates)"/>
+    <Map :parking-spots="freeParkingSpots"/>
   </div>
 </template>
 

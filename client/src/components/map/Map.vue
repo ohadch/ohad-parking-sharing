@@ -11,8 +11,8 @@
             <MapIcon :icon="require(`../../assets/location-icon.png`)" :coordinates="currentPosition" :scale="0.05"/>
           </template>
         </vl-geoloc>
-        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="coordinates in coordinatesArrays"
-                 :coordinates="coordinates" :key="JSON.stringify(coordinates)"/>
+        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="parkingSpot in parkingSpots"
+                 :coordinates="parkingSpot.coordinates" :key="parkingSpot._id"/>
 
         <vl-layer-tile id="osm">
           <vl-source-osm></vl-source-osm>
@@ -35,7 +35,7 @@ export default {
     MapIcon
   },
   props: {
-    coordinatesArrays: {
+    parkingSpots: {
       type: Array,
       required: true
     }
