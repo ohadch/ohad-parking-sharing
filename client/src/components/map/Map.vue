@@ -5,13 +5,7 @@
               data-projection="EPSG:4326" style="height:700px">
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
-        <vl-feature id="position-feature" v-for="coordinates in coordinatesArrays" :key="JSON.stringify(coordinates)">
-          <vl-geom-point :coordinates="coordinates"></vl-geom-point>
-          <vl-style-box>
-            <vl-style-icon :src="require(`../assets/parking-icon.png`)" :scale="0.125" :anchor="[0.5, 1]"></vl-style-icon>
-          </vl-style-box>
-        </vl-feature>
-
+        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="coordinates in coordinatesArrays" :coordinates="coordinates" :key="JSON.stringify(coordinates)" />
 
         <vl-layer-tile id="osm">
           <vl-source-osm></vl-source-osm>
@@ -24,9 +18,13 @@
 <script>
 
 import {COORDINATES} from "@/consts";
+import MapIcon from "@/components/map/MapIcon";
 
 export default {
   name: "Map",
+  components: {
+    MapIcon
+  },
   props: {
     coordinatesArrays: {
       type: Array,
