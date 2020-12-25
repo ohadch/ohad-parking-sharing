@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-content">
       <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true"
-              data-projection="EPSG:4326" style="height: 400px">
+              data-projection="EPSG:4326" style="height:700px">
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
         <vl-geoloc @update:position="geolocPosition = $event">
