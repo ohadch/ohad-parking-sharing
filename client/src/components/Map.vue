@@ -8,7 +8,7 @@
         <vl-feature id="position-feature" v-for="coordinates in coordinatesArrays" :key="JSON.stringify(coordinates)">
           <vl-geom-point :coordinates="coordinates"></vl-geom-point>
           <vl-style-box>
-            <vl-style-icon :src="require(`../assets/parking-icon.png`)" :scale="0.05" :anchor="[0.5, 1]"></vl-style-icon>
+            <vl-style-icon :src="require(`../assets/parking-icon.png`)" :scale="0.125" :anchor="[0.5, 1]"></vl-style-icon>
           </vl-style-box>
         </vl-feature>
 
