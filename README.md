@@ -6,5 +6,6 @@ Find and share free parking spots in your area.
 - **Server**: node.js/typescript
 - **Client**: vue.js
 - **DB**: mongo
+- **ORM**: mongoose
 - **API**: express
 - **Map Engine**: vuelayers
