@@ -1,0 +1,11 @@
+{
+  "name": "shared-parking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ohadch/shared-parking.git",
+  "author": "Ohad<ohadch9518@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "tunnel": "cd client && yarn tunnel"
+  }
+}
