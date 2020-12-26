@@ -7,10 +7,11 @@
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
         <vl-geoloc @update:position="geolocPosition = $event">
-          <template v-if="currentPosition" id="position-feature">
-            <MapIcon :icon="require(`../../assets/location-icon.png`)" :coordinates="currentPosition" :scale="0.05"/>
+          <template v-if="currentPosition">
+            <MapIcon id="current" :icon="require(`../../assets/location-icon.png`)" :coordinates="currentPosition" :scale="0.05"/>
           </template>
         </vl-geoloc>
+
         <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="parkingSpot in parkingSpots"
                  :coordinates="parkingSpot.coordinates" :key="parkingSpot._id"/>
 
@@ -62,6 +63,7 @@ export default {
     navigator.geolocation.getCurrentPosition(pos => {
       this.gettingLocation = false;
       this.geolocPosition = [pos.coords.longitude, pos.coords.latitude];
+      this.center = this.geolocPosition
       // this.geolocPosition = [pos.coords.latitude, pos.coords.longitude];
     }, err => {
       this.gettingLocation = false;

@@ -2,8 +2,9 @@ import NetworkService from "@/api/network";
 
 export class ParkingSpotApi {
 
-    static getAll() {
-        return NetworkService.get("/api/parking-spot")
+    static async getAll() {
+        const {parkingSpots} = await NetworkService.get("/api/parking-spot")
+        return parkingSpots
     }
 
     /**

@@ -10,6 +10,8 @@
 import Map from '@/components/map/Map.vue'
 import { mapState } from "vuex";
 import {A_CREATE_PARKING_SPOT} from "@/store/actions/parkingSpot.actions";
+import ApiService from "@/api";
+import {M_ADD_PARKING_SPOT} from "@/store/mutations/parkingSpot.mutations";
 
 export default {
   name: 'Home',
@@ -19,6 +21,12 @@ export default {
   data() {
     return {
       isLoading: false
+    }
+  },
+  async mounted() {
+    const parkingSpots = await ApiService.parkingSpot.getAll();
+    for (const parkingSpot of parkingSpots) {
+      this.$store.commit(`parkingSpot/${M_ADD_PARKING_SPOT}`, parkingSpot)
     }
   },
   computed: {
