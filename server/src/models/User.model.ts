@@ -14,6 +14,7 @@ UserSchema.statics.getOrCreateByFacebookCredentials = async function (facebookUs
         return existing;
     }
 
+    console.log(`Will register facebook user ${facebookUserId}`)
     return UserModel.create({ facebookUserId });
 }
 
