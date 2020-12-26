@@ -12,7 +12,7 @@
           </template>
         </vl-geoloc>
 
-        <MapIcon :icon="require(`../../assets/parking-icon.png`)" v-for="parkingSpot in parkingSpots"
+        <MapIcon :id ="parkingSpot._id" :icon="require(`../../assets/parking-icon.png`)" v-for="parkingSpot in parkingSpots"
                  :coordinates="parkingSpot.coordinates" :key="parkingSpot._id"/>
 
         <vl-layer-tile id="osm">

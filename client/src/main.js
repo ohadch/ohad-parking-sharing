@@ -9,10 +9,14 @@ import 'buefy/dist/buefy.css'
 import VueSocketIOExt from 'vue-socket.io-extended';
 import io from 'socket.io-client';
 
-import {HOST} from "@/consts";
+import {HOST, LOCALSTORAGE_KEYS} from "@/consts";
 
 Vue.config.productionTip = false
-const socket = io(HOST);
+const socket = io(HOST, {
+  extraHeaders: {
+    user: localStorage.getItem(LOCALSTORAGE_KEYS.user)
+  }
+});
 
 Vue.use(VueSocketIOExt, socket, { store });
 Vue.use(Buefy)
