@@ -12,7 +12,6 @@ import Map from '@/components/map/Map.vue'
 import VFacebookLogin from 'vue-facebook-login-component'
 
 import { mapState } from "vuex";
-import {A_CREATE_PARKING_SPOT} from "@/store/actions/parkingSpot.actions";
 import ApiService from "@/api";
 import {M_ADD_PARKING_SPOT} from "@/store/mutations/parkingSpot.mutations";
 import {A_FACEBOOK_LOG_IN, A_LOG_OUT} from "@/store/actions/user.actions";
@@ -49,7 +48,7 @@ export default {
   methods: {
     async onParkingVacated() {
       this.isLoading = true
-      await this.$store.dispatch(`parkingSpot/${A_CREATE_PARKING_SPOT}`, { coordinates: this.currentLocationCoordinates })
+      await ApiService.parkingSpot.create(this.currentLocationCoordinates)
       this.isLoading = false
     },
     onFacebookLogin(e) {

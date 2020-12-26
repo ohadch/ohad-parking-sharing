@@ -11,7 +11,15 @@ export class ParkingSpotApi {
      *
      * @param {[]} coordinates
      */
-    static vacate(coordinates) {
-        return NetworkService.post("/api/parking-spot/vacate", { coordinates })
+    static create(coordinates) {
+        return NetworkService.post("/api/parking-spot", { coordinates })
+    }
+
+    /**
+     *
+     * @param {string} parkingSpotId
+     */
+    static delete(parkingSpotId) {
+        return NetworkService.delete(`/api/parking-spot/${parkingSpotId}`)
     }
 }

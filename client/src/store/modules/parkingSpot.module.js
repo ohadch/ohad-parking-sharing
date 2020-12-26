@@ -1,4 +1,4 @@
-import {A_CREATE_PARKING_SPOT, A_PARKING_SPOT_CREATED} from "@/store/actions/parkingSpot.actions";
+import {A_PARKING_SPOT_CREATED} from "@/store/actions/parkingSpot.actions";
 import {M_ADD_PARKING_SPOT} from "@/store/mutations/parkingSpot.mutations";
 
 export default {
@@ -12,9 +12,6 @@ export default {
             if (!existingParkingSpotIds.includes(parkingSpot._id)) {
                 commit(M_ADD_PARKING_SPOT, parkingSpot)
             }
-        },
-        async [A_CREATE_PARKING_SPOT](_, coordinates) {
-            this._vm.$socket.client.emit('ParkingSpotCreated', coordinates);
         }
     },
     mutations: {
