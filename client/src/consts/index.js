@@ -6,3 +6,7 @@ export const COORDINATES = {
         coordinates: [34.771,32.078]
     }
 }
+
+export const LOCALSTORAGE_KEYS = {
+    user: "user"
+}

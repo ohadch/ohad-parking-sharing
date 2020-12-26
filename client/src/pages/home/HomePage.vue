@@ -15,7 +15,7 @@ import { mapState } from "vuex";
 import {A_CREATE_PARKING_SPOT} from "@/store/actions/parkingSpot.actions";
 import ApiService from "@/api";
 import {M_ADD_PARKING_SPOT} from "@/store/mutations/parkingSpot.mutations";
-import {A_LOG_IN, A_LOG_OUT} from "@/store/actions/user.actions";
+import {A_FACEBOOK_LOG_IN, A_LOG_OUT} from "@/store/actions/user.actions";
 
 export default {
   name: 'Home',
@@ -35,6 +35,7 @@ export default {
     }
   },
   computed: {
+    ...mapState("user", ["user"]),
     ...mapState("location", {
       currentLocationCoordinates: "coordinates",
     }),
@@ -42,7 +43,7 @@ export default {
       freeParkingSpots: "freeSpots",
     }),
     canVacateParking() {
-      return this.currentLocationCoordinates && this.currentLocationCoordinates.length
+      return this.user && this.currentLocationCoordinates && this.currentLocationCoordinates.length
     }
   },
   methods: {
@@ -52,8 +53,7 @@ export default {
       this.isLoading = false
     },
     onFacebookLogin(e) {
-      const {facebookUserId} = e.authResponse;
-      this.$store.dispatch(`user/${A_LOG_IN}`, facebookUserId)
+      this.$store.dispatch(`user/${A_FACEBOOK_LOG_IN}`, e.authResponse)
     },
     onLogout() {
       this.$store.dispatch(`user/${A_LOG_OUT}`)

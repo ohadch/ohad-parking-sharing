@@ -4,4 +4,6 @@ export interface IUserDocument extends Document {
     facebookUserId?: string
 }
 
-export interface IUserModel extends Model<IUserDocument> {}
+export interface IUserModel extends Model<IUserDocument> {
+    getOrCreateByFacebookCredentials(facebookUserId: string): IUserDocument;
+}
