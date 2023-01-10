@@ -3,3 +3,5 @@
 **/dist
 **/yarn-error.log
 **/volumes
+registry/
+*.tgz

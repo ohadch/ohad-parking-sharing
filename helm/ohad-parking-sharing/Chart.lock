@@ -1,0 +1,12 @@
+dependencies:
+- name: ohad-parking-sharing-client
+  repository: file://../../client/helm
+  version: 0.0.1
+- name: ohad-parking-sharing-server
+  repository: file://../../server/helm
+  version: 0.0.1
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 13.6.2
+digest: sha256:df687c85c42cf25271a7e35f1a621828a6917e90c0f70b284743b5c4c7851dfb
+generated: "2023-01-10T10:34:39.919197+02:00"

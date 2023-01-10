@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ohad-parking-sharing-client
+  name: ohad-parking-sharing-client
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: ohad-parking-sharing-client
+status:
+  loadBalancer: {}

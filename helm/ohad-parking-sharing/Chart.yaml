@@ -1,0 +1,15 @@
+apiVersion: v2
+name: ohad-parking-sharing
+version: 0.0.1
+description: A Helm chart for the parking sharing app
+
+dependencies:
+  - name: ohad-parking-sharing-client
+    version: 0.0.1
+    repository: file://../../client/helm
+  - name: ohad-parking-sharing-server
+    version: 0.0.1
+    repository: file://../../server/helm
+  - name: mongodb
+    version: 13.6.2
+    repository: https://charts.bitnami.com/bitnami

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ohad-parking-sharing-client
+  labels:
+      app: ohad-parking-sharing-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ohad-parking-sharing-client
+  template:
+    metadata:
+      labels:
+        app: ohad-parking-sharing-client
+    spec:
+      containers:
+      - name: ohad-parking-sharing-client
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 3000
