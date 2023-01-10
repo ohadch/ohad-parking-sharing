@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "tunnel": "ngrok http --host-header=rewrite --subdomain parking 8080"
+    "tunnel": "ngrok http --host-header=rewrite --subdomain parking 8080",
+    "serve:build": "http-server -p 3000 dist"
   },
   "dependencies": {
     "axios": "^0.21.1",
