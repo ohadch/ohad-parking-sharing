@@ -1,2 +1,2 @@
-export const MONGO_URI = "mongodb://localhost:27017/shared-parking";
+export const MONGO_URI = process.env.MONGO_URI
 export const PORT = 8000;

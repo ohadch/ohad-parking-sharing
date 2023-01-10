@@ -1,11 +1,28 @@
 version: "3"
 services:
   mongo:
-    container_name: parking-mongo
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - data-volume:/data/db
-volumes:
-  data-volume:
+      - ./volumes/mongo:/data/db
+
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/shared-parking
+    depends_on:
+      - mongo
+
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
