@@ -1,0 +1,14 @@
+mongodb:
+  auth:
+    rootPassword: example
+    username: root
+    password: example
+    database: chat
+  persistence:
+    enabled: true
+
+ohad-parking-sharing-server:
+  env:
+    MONGO_URI: mongodb://ohad-parking-sharing-mongodb.parking-sharing.svc.cluster.local:27017/
+    MONGO_USER: root
+    MONGO_PASSWORD: example

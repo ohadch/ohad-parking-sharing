@@ -1,9 +1,13 @@
 version: "3"
 services:
   mongo:
-    image: mongo
+    image: mongo:latest
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: chat
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
       - ./volumes/mongo:/data/db
 
@@ -11,10 +15,13 @@ services:
     build:
       context: server
       dockerfile: Dockerfile
+    image: localhost:5001/ohad-parking-sharing-server
     ports:
       - "8000:8000"
     environment:
       MONGO_URI: mongodb://mongo:27017/shared-parking
+      MONGO_USER: root
+      MONGO_PASSWORD: example
     depends_on:
       - mongo
 
@@ -22,6 +29,7 @@ services:
     build:
       context: client
       dockerfile: Dockerfile
+    image: localhost:5001/ohad-parking-sharing-client
     ports:
       - "3000:3000"
     depends_on:
